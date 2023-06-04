@@ -177,7 +177,7 @@ class MogRun_Action extends Typecho_Widget implements Widget_Interface_Do
         'author' => $comment['author'],
         'email' => $comment['mail'],
         'url' => $comment['url'],
-        'status' => $comment['status'],
+        'status' => 1,
         'created' => date('c', $comment['created']),
       );
     }
@@ -205,7 +205,7 @@ class MogRun_Action extends Typecho_Widget implements Widget_Interface_Do
         'author' => $comment['author'],
         'email' => $comment['mail'],
         'url' => $comment['url'],
-        'status' => $comment['status'],
+        'status' => 1, // as approved
         'created' => date('c', $comment['created']),
       );
     }
