@@ -160,9 +160,17 @@ class MogRun_Action extends Typecho_Widget implements Widget_Interface_Do
           $children[] = $child['coid'];
         }
       }
+      $pid = null;
+      // 从文章中找到对应的 slug
+      foreach ($tpPost as $post) {
+        if ($post['cid'] == $comment['cid']) {
+          $pid = $post['slug'];
+          break;
+        }
+      }
       $comments[] = array(
         'id' => $comment['coid'], // 评论的id
-        'pid' => $comment['cid'],
+        'pid' => $pid,
         'parent' => $comment['parent'],
         'children' => $children,
         'text' => $comment['text'],
@@ -181,9 +189,16 @@ class MogRun_Action extends Typecho_Widget implements Widget_Interface_Do
           $children[] = $child['coid'];
         }
       }
+      $pid = null;
+      foreach ($tpPage as $page) {
+        if ($page['cid'] == $comment['cid']) {
+          $pid = $page['slug'];
+          break;
+        }
+      }
       $comments[] = array(
         'id' => $comment['coid'], // 评论的id
-        'pid' => $comment['cid'],
+        'pid' => $pid,
         'parent' => $comment['parent'],
         'children' => $children,
         'text' => $comment['text'],
